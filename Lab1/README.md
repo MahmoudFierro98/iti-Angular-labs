@@ -18,13 +18,13 @@ $ ng new Lab1
 ```
 $ cd Lab1
 ```
-\ ![alt text](./Screenshots/Lab1_Task2.PNG)
+![alt text](./Screenshots/Lab1_Task2.PNG)
 
 ## 3- Serve the application.
 ```
 $ ng new Lab1
 ```
-\ ![alt text](./Screenshots/Lab1_Task3.PNG)
+![alt text](./Screenshots/Lab1_Task3.PNG)
 
 ## 4- Install bootstrap.
 ```
