@@ -1,0 +1,85 @@
+<h1 align="center">Product List</h1>
+Product:
+<input type="text" [(ngModel)]="newProduct.name"> Code:
+<input type="text" [(ngModel)]="newProduct.code"> Available:
+<input type="date" [(ngModel)]="newProduct.available"> Price:
+<input type="text" [(ngModel)]="newProduct.price"> Rate:
+<input type="range" min="0" max="5" step="0.25" [title]="newProduct.rate" [(ngModel)]=" newProduct.rate ">
+<button (click)="addNewProduct() ">Add</button>
+
+<hr>
+<div *ngIf="editFlag">
+
+    Product:
+    <input type="text" [(ngModel)]="product.name"> Code:
+    <input type="text" [(ngModel)]="product.code"> Available:
+    <input type="date" [(ngModel)]="product.available"> Price:
+    <input type="text" [(ngModel)]="product.price"> Rate:
+    <input type="range" min="0" max="5" step="0.25" [title]="product.rate" [(ngModel)]=" product.rate ">
+</div>
+
+<hr>Filter by:
+<input type="text " (keyup)="filter() " [(ngModel)]="productName ">
+<table class=" table table-bordered table-hover ">
+    <thead>
+        <tr>
+            <th><button class="btn btn-primary " (click)="showImage() ">Show Image</button></th>
+            <th>Product</th>
+            <th>Code</th>
+            <th>Available</th>
+            <th>Price</th>
+            <th>5 Star Rating</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="productName==='' ">
+        <tr *ngFor=" let product of products ">
+            <td>
+                <div *ngIf="imgFlag ">
+                    <img src="../../assets/{{product.img}} " width="20% " />
+                </div>
+            </td>
+            <td>{{product.name|titlecase}}</td>
+            <td>{{product.code|stringConvert}}</td>
+            <td>{{product.available|date:'MMMM dd,yyyy'}}</td>
+            <td>${{product.price}}</td>
+            <td>
+                <app-star [rate]="product.rate "></app-star>
+            </td>
+            <td>
+                <button class="btn btn-info" (click)="showProduct(product.id)">View</button>
+                <button class="btn btn-primary" (click)="editProduct(product.id)">Edit</button>
+                <button class="btn btn-danger" (click)="deleteProduct(product.id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+    <tbody *ngIf="productName!=='' ">
+        <tr *ngFor=" let product of filteredProducts ">
+            <td>
+                <div *ngIf="imgFlag ">
+                    <img src="../../assets/{{product.img}} " width="20% " />
+                </div>
+            </td>
+            <td>{{product.name|titlecase}}</td>
+            <td>{{product.code|stringConvert}}</td>
+            <td>{{product.available|date:'MMMM dd,yyyy'}}</td>
+            <td>${{product.price}}</td>
+            <td>
+                <app-star [rate]="product.rate"></app-star>
+            </td>
+            <td>
+                <button class="btn btn-info" (click)="showProduct(product.id)">View</button>
+                <button class="btn btn-primary" (click)="editProduct(product.id)">Edit</button>
+                <button class="btn btn-danger" (click)="deleteProduct(product.id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div *ngIf="showFlag">
+    <img src="../../assets/{{viewProduct.img}} " width="20% " />
+    <br>Product: {{viewProduct.name|titlecase}}
+    <br /> Code: {{viewProduct.code|stringConvert}}
+    <br /> Available: {{viewProduct.available|date:'MMMM dd,yyyy'}}
+    <br /> Price: ${{viewProduct.price}}
+    <br /> 5 Star Rating:
+    <app-star [rate]="viewProduct.rate"></app-star>
+</div>

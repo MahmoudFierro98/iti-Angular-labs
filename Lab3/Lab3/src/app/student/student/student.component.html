@@ -1,0 +1,48 @@
+<h1>Students</h1>
+
+ID:
+<input type=" text " [(ngModel)]="newStudent.id"> Name:
+<input type="text " [(ngModel)]="newStudent.name"> Age:
+<input type="text " [(ngModel)]="newStudent.age"> Department No:
+<input type="text " [(ngModel)]="newStudent.deptno">
+<button (click)="addNewStudent() ">Add</button>
+
+<div *ngIf="student.name!='hidden0000'">
+    ID:
+    <input type=" text " [(ngModel)]="student.id"> Name:
+    <input type="text " [(ngModel)]="student.name"> Age:
+    <input type="text " [(ngModel)]="student.age"> Department No:
+    <input type="text " [(ngModel)]="student.deptno">
+</div>
+
+<table class=" table table-bordered table-hover ">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Department No.</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of students; let i=index ">
+            <td>{{i+1}}</td>
+            <td>{{student.id}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.age}}</td>
+            <td>{{student.deptno}}</td>
+            <td>
+                <button class="btn btn-info" (click)="showStudent(student.id)">View</button>
+                <button class="btn btn-primary" (click)="editStudent(student.id)">Edit</button>
+                <button class="btn btn-danger" (click)="deleteStudent(student.id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div style="background-color: red;" *ngIf="viewStudent.name!='hidden0000'">
+    ID: {{viewStudent.id}}
+    <br /> Name: {{viewStudent.name}}
+    <br /> Age: {{viewStudent.age}}
+    <br /> Department No.: {{viewStudent.deptno}}
+</div>

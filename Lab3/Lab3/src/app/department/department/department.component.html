@@ -1,0 +1,43 @@
+<h1>Departments</h1>
+
+ID:
+<input type=" text " [(ngModel)]="newDepartment.id"> Department Name:
+<input type="text " [(ngModel)]="newDepartment.deptname"> Location:
+<input type="text " [(ngModel)]="newDepartment.location">
+<button (click)="addNewDepartment() ">Add</button>
+
+<div *ngIf="editFlag">
+    ID:
+    <input type=" text " [(ngModel)]="department.id"> Department Name:
+    <input type="text " [(ngModel)]="department.deptname"> Location:
+    <input type="text " [(ngModel)]="department.location">
+</div>
+
+<table class=" table table-bordered table-hover ">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>ID</th>
+            <th>Department Name</th>
+            <th>Location</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let department of departments; let i=index ">
+            <td>{{i+1}}</td>
+            <td>{{department.id}}</td>
+            <td>{{department.deptname}}</td>
+            <td>{{department.location}}</td>
+            <td>
+                <button class="btn btn-info" (click)="showDepartment(department.id)">View</button>
+                <button class="btn btn-primary" (click)="editDepartment(department.id)">Edit</button>
+                <button class="btn btn-danger" (click)="deleteDepartment(department.id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div style="background-color: red;" *ngIf="showFlag">
+    ID: {{viewDepartment.id}}
+    <br /> Department Name: {{viewDepartment.deptname}}
+    <br /> Location: {{viewDepartment.location}}
+</div>
