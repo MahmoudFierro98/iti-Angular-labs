@@ -1,0 +1,21 @@
+<h1 align="center">Departments</h1>
+<app-department-add>
+</app-department-add>
+<table class=" table table-bordered table-hover ">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>ID</th>
+            <th>Department Name</th>
+            <th>Location</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let department of departmentsList; let i=index ">
+            <td>{{i+1}}</td>
+            <td>{{department._id}}</td>
+            <td>{{department.name|uppercase}}</td>
+            <td>{{department.location|titlecase}}</td>
+        </tr>
+    </tbody>
+</table>

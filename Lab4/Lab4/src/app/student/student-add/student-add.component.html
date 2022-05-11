@@ -1,0 +1,17 @@
+<div class="form-group">
+    <label>ID</label>
+    <input type="text" class="form-control" [(ngModel)]="newStudent._id">
+</div>
+<div class="form-group">
+    <label>Name</label>
+    <input type="text" class="form-control" [(ngModel)]="newStudent.name">
+</div>
+<div class="form-group">
+    <label>Age</label>
+    <input type="text" class="form-control" [(ngModel)]="newStudent.age">
+</div>
+<div class="form-group">
+    <label>Department No.</label>
+    <input type="text" class="form-control" [(ngModel)]="newStudent.deptno">
+</div>
+<button CLASS="btn btn-primary" (click)="saveStudent() ">Add</button>

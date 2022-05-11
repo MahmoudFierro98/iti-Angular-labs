@@ -1,0 +1,17 @@
+<div class="form-group">
+    <label>ID</label>
+    <input type="text" class="form-control" [(ngModel)]="newDepartment._id">
+</div>
+<div class="form-group">
+    <label>Name</label>
+    <input type="text" class="form-control" [(ngModel)]="newDepartment.name">
+</div>
+<div class="form-group">
+    <label>Location</label>
+    <select class="form-control" [(ngModel)]="newDepartment.location">
+        <option>Smart</option>
+        <option>Alex</option>
+        <option>Mansoura</option>
+    </select>
+</div>
+<button CLASS="btn btn-primary" (click)="saveDepartment() ">Add</button>

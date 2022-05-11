@@ -1,0 +1,22 @@
+<h1 align="center">Students</h1>
+<app-student-add></app-student-add>
+<table class=" table table-bordered table-hover ">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Department No.</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of studentsList; let i=index ">
+            <td>{{i+1}}</td>
+            <td>{{student._id}}</td>
+            <td>{{student.name|titlecase}}</td>
+            <td>{{student.age}}</td>
+            <td>{{student.deptno}}</td>
+        </tr>
+    </tbody>
+</table>
