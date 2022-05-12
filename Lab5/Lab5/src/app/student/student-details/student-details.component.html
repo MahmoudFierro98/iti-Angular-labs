@@ -1,0 +1,21 @@
+<div class="card my-3">
+    <h5 class="card-header">Student Info</h5>
+    <div class="card-body">
+        <div>
+            <span style="font-size: 1.2rem; font-weight: bold">ID: </span>
+            <p class="card-text">{{student?._id}}</p>
+        </div>
+        <div>
+            <span style="font-size: 1.2rem; font-weight: bold">Name: </span>
+            <p class="card-text">{{student?.name | uppercase}}</p>
+        </div>
+        <div>
+            <span style="font-size: 1.2rem; font-weight: bold">Age: </span>
+            <p class="card-text">{{student?.age}}</p>
+        </div>
+        <div>
+            <span style="font-size: 1.2rem; font-weight: bold"> Department no.: </span>
+            <p class="card-text">{{student?.deptno}}</p>
+        </div>
+    </div>
+</div>

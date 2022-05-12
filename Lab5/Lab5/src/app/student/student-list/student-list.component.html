@@ -1,0 +1,28 @@
+<h1 align="center">Students</h1>
+<!-- <app-student-add></app-student-add> -->
+<table class=" table table-bordered table-hover ">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Department No.</th>
+            <th><button class="btn btn-primary" (click)="showAdd()">Add Student</button></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of studentsList; let i=index ">
+            <td>{{i+1}}</td>
+            <td>{{student._id}}</td>
+            <td>{{student.name|titlecase}}</td>
+            <td>{{student.age}}</td>
+            <td>{{student.deptno}}</td>
+            <td>
+                <a class="btn btn-info" [routerLink]="['/students/details/',student._id]">View</a>
+                <a class="btn btn-primary" [routerLink]="['/students/edit/',student._id]">Edit</a>
+                <button class="btn btn-danger" (click)="deleteStudent(student._id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

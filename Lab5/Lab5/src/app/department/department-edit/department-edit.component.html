@@ -1,0 +1,24 @@
+<form #signup="ngForm" (ngSubmit)="editDepartment()" *ngIf="department != null">
+    <div class="form-group">
+        <label>ID</label>
+        <input type="number" class="form-control" [(ngModel)]="department._id" name="department-id" #id="ngModel" required>
+        <small id="" class="form-text text-muted" *ngIf="id.invalid && id.touched">ID is Required</small>
+    </div>
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" [(ngModel)]="department.name" name="department-name" #name="ngModel" minlength="2" required>
+        <small id="" class="form-text text-muted" *ngIf="name.errors?.['required'] && name.touched">Department Name is Required</small>
+        <small id="" class="form-text text-muted" *ngIf="name.errors?.['minlength'] && name.touched">Department Name Min length '2'</small>
+    </div>
+    <div class="form-group">
+        <label>Location</label>
+        <select class="form-control" [(ngModel)]="department.location" name="department-location" #location="ngModel" required>
+            <option selected hidden>{{department.location}}</option>
+            <option>Smart</option>
+            <option>Alex</option>
+            <option>Mansoura</option>
+        </select>
+        <small id="" class="form-text text-muted" *ngIf="location.errors?.['required'] && location.touched"> Location is Required</small>
+    </div>
+    <input type="submit" value="Edit" class=" btn btn-primary " [disabled]="signup.invalid ">
+</form>

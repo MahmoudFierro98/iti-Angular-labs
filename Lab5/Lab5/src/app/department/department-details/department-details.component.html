@@ -1,0 +1,17 @@
+<div class="card my-3">
+    <h5 class="card-header">Department Info</h5>
+    <div class="card-body">
+        <div>
+            <span style="font-size: 1.2rem; font-weight: bold">ID: </span>
+            <p class="card-text">{{department?._id}}</p>
+        </div>
+        <div>
+            <span style="font-size: 1.2rem; font-weight: bold">Department Name: </span>
+            <p class="card-text">{{department?.name | uppercase}}</p>
+        </div>
+        <div>
+            <span style="font-size: 1.2rem; font-weight: bold">Location: </span>
+            <p class="card-text">{{department?.location | titlecase}}</p>
+        </div>
+    </div>
+</div>
