@@ -1,0 +1,26 @@
+<form #signup="ngForm" (ngSubmit)="editStudent()" *ngIf="student != null">
+    <div class="form-group">
+        <label>ID</label>
+        <input type="number" class="form-control" [(ngModel)]="student._id" name="student-id" #id="ngModel" required>
+        <small id="" class="form-text text-muted" *ngIf="id.invalid && id.touched">ID is Required</small>
+    </div>
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" [(ngModel)]="student.name" name="student-name" #name="ngModel" minlength="2" required>
+        <small id="" class="form-text text-muted" *ngIf="name.errors?.['required'] && name.touched">Name is Required</small>
+        <small id="" class="form-text text-muted" *ngIf="name.errors?.['minlength'] && name.touched">Name Min length '2'</small>
+    </div>
+    <div class="form-group">
+        <label>Age</label>
+        <input type="number" class="form-control" [(ngModel)]="student.age" name="student-age" #age="ngModel" min="18" max="100" required>
+        <small id="" class="form-text text-muted" *ngIf="age.errors?.['required'] && age.touched">Age is Required</small>
+        <small id="" class="form-text text-muted" *ngIf="age.errors?.['min'] && age.touched">Age Name Min value '18'</small>
+        <small id="" class="form-text text-muted" *ngIf="age.errors?.['max'] && age.touched">Age Name Max value '100'</small>
+    </div>
+    <div class="form-group">
+        <label>Department No.</label>
+        <input type="text" class="form-control" [(ngModel)]="student.deptno" name="student-department" #deptno="ngModel" required>
+        <small id="" class="form-text text-muted" *ngIf="deptno.errors?.['required'] && deptno.touched">Name is Required</small>
+    </div>
+    <input type="submit" value="Edit" class=" btn btn-primary " [disabled]="signup.invalid ">
+</form>

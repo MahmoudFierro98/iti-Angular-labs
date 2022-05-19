@@ -1,0 +1,26 @@
+[
+    {
+        "_id": 1,
+        "name": "SD",
+        "location": "Mansoura",
+        "__v": 0
+    },
+    {
+        "_id": 2,
+        "name": "SD",
+        "location": "Alex",
+        "__v": 0
+    },
+    {
+        "_id": 3,
+        "name": "OS",
+        "location": "Alex",
+        "__v": 0
+    },
+    {
+        "_id": 4,
+        "name": "OS",
+        "location": "Mansoura",
+        "__v": 0
+    }
+]

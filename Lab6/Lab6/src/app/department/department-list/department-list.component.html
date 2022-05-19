@@ -1,0 +1,29 @@
+<!-- <a routerLink="/departments/add"> Add Department</a> -->
+<h1 align="center">Departments</h1>
+
+<!-- <app-department-add></app-department-add> -->
+<table class=" table table-bordered table-hover ">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>ID</th>
+            <th>Department Name</th>
+            <th>Location</th>
+            <th><button class="btn btn-primary" (click)="showAdd()">Add Department</button></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let department of departmentsList; let i=index">
+            <td>{{i+1}}</td>
+            <td>{{department._id}}</td>
+            <td>{{department.name|uppercase}}</td>
+            <td>{{department.location|titlecase}}</td>
+            <td>
+                <a class="btn btn-info" [routerLink]="['/departments/details/',department._id]">View</a>
+                <a class="btn btn-primary" [routerLink]="['/departments/edit/',department._id]">Edit</a>
+                <button class="btn btn-danger" (click)="deleteDepartment(department._id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<router-outlet></router-outlet>

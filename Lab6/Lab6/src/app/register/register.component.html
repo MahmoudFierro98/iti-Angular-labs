@@ -1,0 +1,27 @@
+<form #signup="ngForm" (ngSubmit)="addUser()">
+    <div class="form-group">
+        <label>ID</label>
+        <input type="text" class="form-control" [(ngModel)]="user.id" name="user-id" #id="ngModel" required>
+        <small id="" class="form-text text-muted" *ngIf="id.invalid && id.touched">ID is Required</small>
+    </div>
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" [(ngModel)]="user.name" name="user-name" #username="ngModel" minlength="3" required>
+        <small id="" class="form-text text-muted" *ngIf="username.errors?.['required'] && username.touched">Name is Required</small>
+        <small id="" class="form-text text-muted" *ngIf="username.errors?.['minlength'] && username.touched">Name Min length '3'</small>
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input type="email" class="form-control" [(ngModel)]="user.email" name="user-email" #email="ngModel" pattern="[a-zA-Z0-9_]*@[a-zA-Z0-9_]+.[a-zA-Z]{2,4}" required>
+        <small id="" class="form-text text-muted" *ngIf="email.errors?.['required'] && email.touched">Email is Required</small>
+        <small id="" class="form-text text-muted" *ngIf="email.errors?.['pattern'] && email.touched">Invalid Email</small>
+    </div>
+    <input type="submit" class="btn btn-primary" [disabled]="signup.invalid">
+</form>
+<button (click)=" showForm(signup) ">Show</button> {{signup.value|json}}
+<br>
+<button (click)="showForm(id) ">Show</button> {{id.value|json}}
+<br>
+<button (click)="showForm(username) ">Show</button> {{username.value|json}}
+<br>
+<button (click)="showForm(email) ">Show</button> {{email.value|json}}
